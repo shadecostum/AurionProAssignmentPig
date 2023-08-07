@@ -13,27 +13,27 @@ namespace PigDiseGame
         {
 
 
-            int totalScore = 0;
+            
             Console.WriteLine("welcome to Pig Dice Game");
             while (true)
             {
                
-                int currentTurnScore = 0;
-                totalScore = 0;
+                int totalTurnScore = 0;
+                
                 while (true)
                 {
-                    Random rn = new Random();
-                    int diceRandom = rn.Next(1, 7);
+                    Random randomNumber = new Random();
+                    int currentTurnScore = randomNumber.Next(1, 7);
 
 
                     Console.WriteLine(" 1.Type 'r' to ROLL THE Dise,2.Type 'h' to HOLD 3.Type 'q' to Quit the Game ");
                     string diceTurn = Console.ReadLine().ToLower();
 
-                    if (diceRandom == 1)
+                    if (currentTurnScore == 1)
                     {
-                        Console.WriteLine("You rolled a :" + diceRandom);
+                        Console.WriteLine("You rolled a :" + currentTurnScore);
                         Console.WriteLine("Sorry you ----- LOSE------ TRY ------AGAIN");
-                        currentTurnScore = 0;
+                        totalTurnScore = 0;
                        
                         
                     }
@@ -45,20 +45,21 @@ namespace PigDiseGame
                     }
                     else if (diceTurn == "r")
                     {
-                        currentTurnScore = currentTurnScore + diceRandom;
-                        Console.WriteLine("current turn score :  " + diceRandom);
-                        Console.WriteLine("Total score recived : " + currentTurnScore);
-                        totalScore = currentTurnScore;
-                        if (currentTurnScore >= 20)
+                        totalTurnScore = totalTurnScore + currentTurnScore;
+                        Console.WriteLine("current turn score :  " + currentTurnScore);
+                        Console.WriteLine("Total score recived : " + totalTurnScore);
+
+                        /*if (currentTurnScore >= 20)
                         {
                             Console.WriteLine("-----YOU_____WIN------ ");
-                            break;
-                        }
+                            //break;
+                            return;
+                        }*/
                     }
                     else if (diceTurn == "h")
                     {
-                        Console.WriteLine("Total score recived :  " + currentTurnScore);
-                        if (currentTurnScore >= 20)
+                        Console.WriteLine("Total score recived :  " + totalTurnScore);
+                        if (totalTurnScore >= 20)
                         {
                             Console.WriteLine("-----YOU_____WIN------ ");
                             break;
