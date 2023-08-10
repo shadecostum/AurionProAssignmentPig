@@ -17,17 +17,12 @@ namespace newPig
             int totalScore = 0;
             int holdScore = 0;
             while (true)
-            {
-
-
-               
-                RollOrHoldProgram(ref currentScore, ref totalScore, ref holdScore, ref numberTurn);
-
-
+            {  
+                RollOrHoldProgram( currentScore,  totalScore,  holdScore,  numberTurn);
             }
         }
 
-        private static void RollOrHoldProgram(ref int currentScore, ref int totalScore, ref int holdScore, ref int numberTurn)
+        private static void RollOrHoldProgram( int currentScore, int totalScore,  int holdScore,  int numberTurn)
         {
                          
             while (true)
@@ -35,12 +30,12 @@ namespace newPig
                 Console.WriteLine($"---------------Turn :{numberTurn}--------------");
                 Console.WriteLine("---- 1.Type 'r' to ROLL THE Dise,2.Type 'h' to HOLD ----");
                 string chooseOption = Console.ReadLine().ToLower();
-                ChoosenR(ref chooseOption,ref currentScore,ref totalScore,ref holdScore,ref numberTurn);
+                ChoosenR( chooseOption,ref currentScore,ref totalScore,ref holdScore,ref numberTurn);
 
             }
         }
 
-        private static void ChoosenR(ref string chooseOption,ref int currentScore, ref int totalScore,ref int holdScore,ref int numberTurn)
+        private static void ChoosenR( string chooseOption,ref int currentScore,ref  int totalScore,ref int holdScore,ref int numberTurn)
         {
             if (chooseOption == "r")
             {
@@ -50,7 +45,7 @@ namespace newPig
                 
 
             }
-            else if (chooseOption == "h")
+           else if (chooseOption == "h")
             {
 
                 totalScore = totalScore + currentScore;
@@ -64,6 +59,8 @@ namespace newPig
             {
                 Console.WriteLine("-------INVALID ENTRY--------Try 'r' or 'h' ");
             }
+            
+            
             
         }
 
